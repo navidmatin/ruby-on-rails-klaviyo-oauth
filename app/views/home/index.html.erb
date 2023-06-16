@@ -1,0 +1,23 @@
+
+<div class="container">
+  <h1>Klaviyo OAuth Example App</h1>
+  <p>Get Campaigns:</p>
+  <div>
+    <a class="btn btn-success" href="/oauth">Authorize</a>
+    <small>Make sure to set OAUTH_CLIENT_ID and OAUTH_CLIENT_SECRET environment variables</small>
+  </div>
+  <br />
+  <button id="getCampaignsBtn" class="btn btn-primary">Get Campaigns</button>
+  <pre id="campaignsJson"></pre>
+</div>
+
+<script>
+  document.getElementById('getCampaignsBtn').addEventListener('click', () => {
+    fetch('/campaigns')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('campaignsJson').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => console.error(error));
+  });
+</script>

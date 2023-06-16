@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "home#index"
+  get 'home/index'
+  get "/campaigns", to: "home#campaigns"
+  get "/oauth", to: "o_auth#index"
+  get "/oauth/authenticate_klaviyo", to: "o_auth#authenticate_klaviyo"
+  get "/oauth/welcome", to: "o_auth#welcome"
 end
