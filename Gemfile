@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+gem "debug"
+
 gem 'http', '~> 5.1', '>= 5.1.1'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -72,3 +74,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "rack-oauth2", "~> 2.2"
+
+gem "dotenv-rails", "~> 2.8"
+
+gem "attr_encrypted", "~> 4.0"

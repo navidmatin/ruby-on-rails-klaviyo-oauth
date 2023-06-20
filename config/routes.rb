@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get "/campaigns", to: "home#campaigns"
   get "/oauth", to: "o_auth#index"
   get "/oauth/authenticate_klaviyo", to: "o_auth#authenticate_klaviyo"
-  get "/oauth/welcome", to: "o_auth#welcome"
+  get "/oauth/redirect", to: "o_auth#redirect"
 end

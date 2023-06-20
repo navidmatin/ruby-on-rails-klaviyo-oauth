@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code_verifier: MyText
+  code_challenge: MyText
+  refresh_token: MyText
+
+two:
+  code_verifier: MyText
+  code_challenge: MyText
+  refresh_token: MyText
