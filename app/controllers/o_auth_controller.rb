@@ -14,14 +14,16 @@ class OAuthController < ApplicationController
 
   def authenticate_klaviyo
     last_token = OAuth.expired_token.order(expires_at: :desc).first
+    # If we have an expired token we can just use the refresh token to refresh it.
     if last_token
       response = access_token(code_verifier: last_token.code_verifier, refresh_token: last_token.refresh_token)
       if response
         handle_access_token_response(last_token, response)
-        redirect_to '/'
+        return redirect_to '/'
       end
     end
-    redirect_to authorization_uri, allow_other_host: true
+    # else we should go through the whole authorization process
+    return redirect_to authorization_uri, allow_other_host: true
   end
 
   private

@@ -78,5 +78,3 @@ end
 gem "rack-oauth2", "~> 2.2"
 
 gem "dotenv-rails", "~> 2.8"
-
-gem "attr_encrypted", "~> 4.0"

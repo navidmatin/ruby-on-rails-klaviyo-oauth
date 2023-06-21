@@ -17,7 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_182010) do
     t.text "refresh_token"
     t.text "access_token"
     t.datetime "expires_at"
-    t.boolean "expired"
     t.text "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
