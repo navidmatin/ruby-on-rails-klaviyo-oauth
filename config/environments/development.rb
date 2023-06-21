@@ -70,6 +70,6 @@ Rails.application.configure do
   config.active_record.encryption.primary_key= ENV['PRIMARY_KEY']
   config.active_record.encryption.deterministic_key= ENV['DETERMINISTIC_KEY']
   config.active_record.encryption.key_derivation_salt= ENV['KEY_DERIVATION_SALT']
-  config.force_ssl = true
-  config.ssl_options = { redirect: { exclude: ->(request) { request.path =~ /health_check/ } } }
+  # config.force_ssl = true
+  # config.ssl_options = { redirect: { exclude: ->(request) { request.path =~ /health_check/ } } }
 end

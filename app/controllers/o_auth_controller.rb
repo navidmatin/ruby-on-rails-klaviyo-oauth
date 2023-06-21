@@ -10,10 +10,22 @@ class OAuthController < ApplicationController
   def redirect
     code = params[:code]
     state = params[:state]
-    oauth = OAuth.findy_by(state: state)
+    oauth = OAuth.find_by(state: state)
     client = oauth_client()
     client.authorization_code = code
-    response = client.access_token!
+    p client.methods
+    p client.authorization_endpoint
+
+    response = client.access_token!() do |request|
+      request.headers["Content-Type"] = "application/x-www-form-urlencoded"
+      # request.body[:grant_type] = 'authorization_code'
+      # request.body[:code] = code,
+      request.body[:code_verifier] = oauth.code_verifier
+      p "TESTING"
+      p request
+    end
+    p response
+
     oauth.access_token = response.token_response.access_token
     oauth.refresh_token = response.token_response.refresh_token
     oauth.expires_at = Time.now.utc + response.token_response.expires_in
